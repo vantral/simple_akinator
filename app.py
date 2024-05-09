@@ -19,6 +19,11 @@ characters = [
     {'name': 'Sandy Cheeks',          'answers': {1: 0, 2: 0, 3: 0}},
 ]
 
+def character_answer(character, question):
+    if question in character['answers']:
+        return character['answers'][question]
+    return 0.5
+
 def calculate_character_probability(character, questions_so_far, answers_so_far):
     # Prior
     P_character = 1 / len(characters)
@@ -45,11 +50,6 @@ def calculate_character_probability(character, questions_so_far, answers_so_far)
 
     return P_character_given_answers
 
-
-def character_answer(character, question):
-    if question in character['answers']:
-        return character['answers'][question]
-    return 0.5
 
 def calculate_probabilites(questions_so_far, answers_so_far):
     probabilities = []
